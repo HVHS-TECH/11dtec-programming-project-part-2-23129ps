@@ -20,13 +20,15 @@
 /*** Main function to get user input and display rental summary.*/
 function getUserInput() {
     const userName = document.getElementById("user_name").value;
-    const carChoice = document.getElementById("car-choice").value;
-    const rentalDays = parseInt(document.getElementById("rental_days").value); 
+    const carChoice = document.getElementById("i-carChoice").value;
+    const rentalDays = parseInt(document.getElementById("i-rentalDays").value); 
+    const carInsurance = parseInt(document.getElementById("i-insurance").value); 
     const output = document.getElementById("output");
 
 // Validate that all fields are filled in 
 if (!userName || !carChoice || isNaN(rentalDays)) {
    alert("please fill out all fields.");
    return; 
+}
 }
 
