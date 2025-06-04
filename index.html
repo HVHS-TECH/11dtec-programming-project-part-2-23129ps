@@ -4,23 +4,19 @@
   <title>Bob's Rentals</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- stylesheets *******************************************-->
-   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<!--*************************************************************
-  BODY
-**************************************************************-->
 <body>
   <h1>Bob's Rentals</h1>
-  <p>At Bob's Rentals, you'll find a diverse selection of vehicles, ranging from sleek single-seaters to spacious nine-seater, all available at great rates to suit your travel needs.</p>
- <form id="f_userDetails" onsubmit="return false;">
-   <label for="i_userName">Name:</label><br>
-   <input type="text" id="i_userName" name="i_userName" required><br>
+  <p>Choose a vehicle that suits your needs!</p>
 
-   <label for="i-carChoice">Preferred car:</label><br>
-   <select name="car">
+  <form id="f_userDetails" onsubmit="return false;">
+    <label for="i_userName">Name:</label><br>
+    <input type="text" id="i_userName" name="i_userName" required><br>
+
+    <label for="i_carChoice">Preferred car:</label><br>
+    <select id="i_carChoice">
       <option value="">--Choose--</option>
       <option value="Solo Hoverpod">Solo Hoverpod (1 seater)</option>
       <option value="Smart Car">Smart Car (2 seater)</option>
@@ -31,26 +27,26 @@
       <option value="Mercedes-Benz Sprinter">Mercedes-Benz Sprinter (9 seater)</option>
       <option value="Ford Transit">Ford Transit (10 seater)</option>
       <option value="Toyota HiAce">Toyota HiAce (12 seater)</option>
-   </select><br>
+    </select><br>
 
-   <label for="i_rentalDays">How many days to rent:</label><br>
-   <input type="number" id="i_rentalDays" name="i_rentalDays" min="1" max="30" required><br>
+    <label for="i_rentalDays">How many days to rent:</label><br>
+    <input type="number" id="i_rentalDays" name="i_rentalDays" min="1" max="30" required><br>
 
-   <label for="discountCode">Discount code:</label><br>
-<input type="text" id="discountCode" name="discountCode"><br>
+    <label for="discountCode">Discount code:</label><br>
+    <input type="text" id="discountCode" name="discountCode"><br>
 
-<label for="i-insurance">Do you need insurance coverage for your car?</label><br>
-<select name="insurance">
+    <label for="i_insurance">Do you need insurance coverage?</label><br>
+    <select id="i_insurance">
       <option value="">--Choose--</option>
       <option value="Yes">Yes</option>
-      <option value="No">No</option></select><br>
+      <option value="No">No</option>
+    </select><br>
 
-   <button onclick="getUserInput();" value="submit">Submit</button>
+    <button onclick="getUserInput();">Submit</button>
+  </form>
 
-</form>
+  <div id="output"></div>
+
   <script src="part_2.js"></script>
 </body>
 </html>
-<!--*************************************************************
-  END OF T09_FUNCTIONS.HTML
-**************************************************************-->
