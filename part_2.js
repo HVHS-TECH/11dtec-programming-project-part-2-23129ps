@@ -1,5 +1,9 @@
-// Array of car names
-const cars = [
+ let insuranceCost = 0;
+ let discount = 0;
+ let totalCost = 0;
+ let pricePerDay = 0;
+ // Array of car names
+const cars = [ "0", 
     "Solo Hoverpod", "Smart Car", "Mazda RX-8", "Toyota Camry", "Honda CR-V",
     "Chevrolet Suburban", "Mercedes-Benz Sprinter", "Ford Transit", "Toyota HiAce"
 ];
@@ -25,8 +29,30 @@ function getUserInput() {
         return;
     }
 
+     if (!isNaN(userName)) {
+        alert("Please write a valid name.");
+        return;
+    }
+
+      // Get the car index
+    const carIndex = cars.indexOf(carChoice);
+
+    if (insuranceOption === "Yes") {
+    insuranceCost = insuranceRates[carIndex] * rentalDays;
+}
+   pricePerDay = prices[carIndex];
+
+  if (discountOffers.includes(discountCode)) {
+    totalCost = 0.9*(pricePerDay * rentalDays + insuranceCost);
+  }
+  else {
+    totalCost = pricePerDay * rentalDays + insuranceCost;
+  }
+
     console.log("User Name:", userName);
 console.log("Rental Days:", rentalDays);
+console.log("insruance cost:", insuranceCost);
+console.log("total", totalCost);
 
  
 }
