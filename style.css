@@ -13,9 +13,17 @@ h1 {
   color: #333;
   margin-bottom: 10px;
   border-radius: 5cm;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding-top: 4cm;
 }
 
+header {
+    background-color: #1A1A1D;
+    color: #F8F8F8;
+    padding: 15px;
+    text-align: center;
+    font-size: 50px;
+    border-radius: 13px;
+}
 
 p {
   font-size: 18px;
