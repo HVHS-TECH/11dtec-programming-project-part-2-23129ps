@@ -23,6 +23,47 @@ const insuranceRates = [0, 10, 8, 12, 9, 10, 15, 20, 18, 17]; // Insurance per d
 const lateFeeRates = [0, 20, 15, 25, 18, 20, 30, 35, 32, 30]; // Late return penalty per day
 const discountOffers = ["SUMMER", "EARLYBIRD", "WEEKLY10"]; // Discount codes
 
+/*** Function to redirect to username page */
+function redirectToUserName() {
+    window.location.href = "user_name.html"; // Redirect to user name page
+}
+
+/*** Function to redirect to user age page */
+function redirectToUserAge() {
+    const userName = document.getElementById("i_userName").value;
+    const errorElement = document.getElementById("userNameError");
+    if (!userName) {
+             alert("Please fill out all the required fields.");
+        return;
+    }
+    else if (!isNaN(userName)) {
+        alert("Please fill a valid name.");
+    }
+    else {
+    window.location.href = "user_age.html"; // Redirect to user age page
+    }
+}
+
+/*** Function to redirect to car choice page */
+function redirectToCarChoice() {
+    const userAge = document.getElementById("i_userAge").value;
+    
+    window.location.href = "car_choice.html"; // Redirect to car choice page
+}
+
+/*** Function to redirect to insurance page */
+function redirectToInsurance() {
+    window.location.href = "insurance.html"; // Redirect to car choice page
+}
+
+function redirectToDiscount() {
+    window.location.href = "discounts.html"; // Redirect to car choice page
+}
+
+function redirectToSummary() {
+    window.location.href = "summary.html"; // Redirect to car choice page
+}
+
 /*** Main function to get user input and display rental summary. */
 function getUserInput() {
     const userName = document.getElementById("i_userName").value;
