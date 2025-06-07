@@ -9,11 +9,22 @@
 </head>
 <body>
     <header class="title w3-container w3-center w3-animate-left">Priya's Rentals</header>
-    <h1>Do you need insurance coverage for your car?</h1>
+    <h1>Please select your preferred car</h1>
      <form id="f_userDetails" onsubmit="return false;">
-    <label for="i_userAge">Age:</label><br>
-    <input type="number" id="i_userAge" name="i_userAge" placeholder="Enter your age" required><br>
-    <button onclick="redirectToInsurance()">Continue</button>
-</form>
+        <label for="i_carChoice">Preferred Car:</label>
+        <select id="i_carChoice">
+            <option value="">--Choose--</option>
+                  <option value="Solo Hoverpod">Solo Hoverpod (1-seater)</option>
+      <option value="Smart Fortwo">Smart Fortwo (2-seater)</option>
+      <option value="Mazda RX-8">Mazda RX-8 (4-seater)</option>
+      <option value="Toyota Camry">Toyota Camry (5-seater)</option>
+      <option value="Honda CR-V">Honda CR-V (5-seater)</option>
+      <option value="Chevrolet Suburban">Chevrolet Suburban (7-seater)</option>
+      <option value="Mercedes-Benz Sprinter">Mercedes-Benz Sprinter (9-seater)</option>
+      <option value="Ford Transit">Ford Transit (10-seater)</option>
+      <option value="Toyota HiAce">Toyota HiAce (12-seater)</option>
+        </select><br>
+        <button onclick="redirectToInsurance()">Continue</button>
+    </form>
 </body>
 </html>

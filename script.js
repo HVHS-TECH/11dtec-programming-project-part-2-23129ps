@@ -32,23 +32,36 @@ function redirectToUserName() {
 function redirectToUserAge() {
     const userName = document.getElementById("i_userName").value;
     const errorElement = document.getElementById("userNameError");
+
+    errorElement.textContent = ""; // Clear previous error message
+
     if (!userName) {
-             alert("Please fill out all the required fields.");
+        errorElement.textContent = "Please fill out this required field.";
         return;
     }
     else if (!isNaN(userName)) {
-        alert("Please fill a valid name.");
+        errorElement.textContent = "Please enter a valid name.";
+        return;
     }
     else {
-    window.location.href = "user_age.html"; // Redirect to user age page
+        window.location.href = "user_age.html"; // Redirect to user age page
     }
 }
 
 /*** Function to redirect to car choice page */
 function redirectToCarChoice() {
     const userAge = document.getElementById("i_userAge").value;
-    
-    window.location.href = "car_choice.html"; // Redirect to car choice page
+        const errorElement = document.getElementById("userAgeError");
+
+    errorElement.textContent = ""; // Clear previous error message
+
+    if (!userAge){
+           errorElement.textContent = "Please fill out this required field.";
+        return; 
+    }
+    else {
+     window.location.href = "car_choice.html"; // Redirect to car choice page
+    }
 }
 
 /*** Function to redirect to insurance page */
@@ -70,7 +83,7 @@ function getUserInput() {
     const carChoice = document.getElementById("i_carChoice").value;
     const rentalDays = parseInt(document.getElementById("i_rentalDays").value);
     const insuranceOption = document.getElementById("i_insurance").value;
-    const discountCode = document.getElementById("discountCode").value;
+    const discountCode = document.getElementById("i_discountCode").value;
     const output = document.getElementById("output");
 
     // Validate fields
