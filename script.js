@@ -119,6 +119,7 @@ function redirectToDiscountCode() {
 }
 
 function redirectToSummary() {
+    const discounts = document.getElementById("i_discountCode").value;
     lateFees = document.getElementById("i_lateFees").value;
     insuranceCost = localStorage.getItem("insuranceCost");
     carIndex = localStorage.getItem("carIndex");
