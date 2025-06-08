@@ -134,34 +134,11 @@ function redirectToSummary() {
       if (discountOffers.includes(discounts)) {
     totalCost = 0.9*(pricePerDay * rentalDays + insuranceCost);
     discount = 0.1* totalCost;
+
+    alert(userName + userAge + rentalDays+ insuranceCost + discounts+ totalCost);
   }
   else {
     totalCost = pricePerDay * rentalDays + insuranceCost;
   }
-    window.location.href = "summary.html";
+    
 }
-
-// Display Summary on summary.html
-document.addEventListener("DOMContentLoaded", function () {
-
-    if (document.getElementById("summary")) {
-        const username = localStorage.getItem("username") || "Not provided";
-        const carChoice = localStorage.getItem("carChoice") || "No selection";
-        const rentalDays = localStorage.getItem("rentalDays") || "0";
-        const lateFees = localStorage.getItem("lateFees") || "0";
-        const discountCode = localStorage.getItem("discountCode") || "No discount used";
-        const insuranceCost = localStorage.getItem("insuranceCost") || "0";
-        const totalCost = localStorage.getItem("totalCost") || "0";
-
-        document.getElementById("summary").innerHTML = `
-            <h2>Booking Summary</h2>
-            <p><strong>Username:</strong> ${username}</p>
-            <p><strong>Car Chosen:</strong> ${carChoice}</p>
-            <p><strong>Rental Days:</strong> ${rentalDays}</p>
-            <p><strong>Late Fees:</strong> $${lateFees} NZD</p>
-            <p><strong>Discount Code:</strong> ${discountCode}</p>
-            <p><strong>Insurance Cost:</strong> $${insuranceCost} NZD</p>
-            <p><strong>Total Cost:</strong> $${totalCost} NZD</p>
-        `;
-    }
-});
