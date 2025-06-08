@@ -119,15 +119,6 @@ function redirectToDiscountCode() {
 }
 
 function redirectToSummary() {
-    const discounts = document.getElementById("i_discountCode").value;
-      if (discountOffers.includes(discounts)) {
-    totalCost = 0.9*(pricePerDay * rentalDays + insuranceCost);
-    discount = 0.1* totalCost;
-  }
-  else {
-    totalCost = pricePerDay * rentalDays + insuranceCost;
-  }
-
     lateFees = document.getElementById("i_lateFees").value;
     insuranceCost = localStorage.getItem("insuranceCost");
     carIndex = localStorage.getItem("carIndex");
@@ -138,6 +129,15 @@ function redirectToSummary() {
 
     localStorage.setItem("lateFees", lateFees);
     localStorage.setItem("totalCost", totalCost);
+
+        const discounts = document.getElementById("i_discountCode").value;
+      if (discountOffers.includes(discounts)) {
+    totalCost = 0.9*(pricePerDay * rentalDays + insuranceCost);
+    discount = 0.1* totalCost;
+  }
+  else {
+    totalCost = pricePerDay * rentalDays + insuranceCost;
+  }
     window.location.href = "summary.html";
 }
 
