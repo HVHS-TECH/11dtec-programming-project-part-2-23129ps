@@ -108,7 +108,7 @@ function redirectToDiscount() {
 }
 
 function redirectToDiscountCode() {
-    const discountOption = document.getElementById("i_insurance").value;
+    const discountOption = document.getElementById("i_discountCode").value;
     if (discountCode === "Yes"){
          window.location.href = "discount_code.html";
            discountCode = document.getElementById("i_discountCode").value;
