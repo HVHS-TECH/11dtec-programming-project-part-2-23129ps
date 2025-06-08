@@ -195,3 +195,35 @@ function redirectToSummary() {
     // Redirect to summary page
     window.location.href = "summary.html";
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Retrieve stored values
+    const userName = localStorage.getItem("username") || "N/A";
+    const userAge = localStorage.getItem("userAge") || "N/A";
+    const carChoice = localStorage.getItem("carChoice") || "N/A";
+    const carIndex = Number(localStorage.getItem("carIndex"));
+    const rentalDays = Number(localStorage.getItem("rentalDays")) || 0;
+    const pricePerDay = carIndex >= 0 ? prices[carIndex] : 0;
+    const insuranceCost = Number(localStorage.getItem("insuranceCost")) || 0;
+    const discountCode = localStorage.getItem("discountCode") || "None";
+    const totalCost = Number(localStorage.getItem("totalCost")) || 0;
+
+    // Calculate discount amount
+    let discountAmount = discountOffers.includes(discountCode) ? 0.1 * (pricePerDay * rentalDays + insuranceCost) : 0;
+
+    // Generate summary content using template literals
+    const summaryContent = `
+        <p><strong>Name:</strong> ${userName}</p>
+        <p><strong>Age:</strong> ${userAge}</p>
+        <p><strong>Car Chosen:</strong> ${carChoice}</p>
+        <p><strong>Rental Days:</strong> ${rentalDays}</p>
+        <p><strong>Price per Day:</strong> $${pricePerDay.toFixed(2)}</p>
+        <p><strong>Insurance Cost:</strong> $${insuranceCost.toFixed(2)}</p>
+        <p><strong>Discount Code Used:</strong> ${discountCode}</p>
+        <p><strong>Discount Applied:</strong> $${discountAmount.toFixed(2)}</p>
+        <p><strong>Total Cost:</strong> $${totalCost.toFixed(2)}</p>
+    `;
+
+    // Insert summary into the page
+    document.getElementById("summaryDetails").innerHTML = summaryContent;
+});
