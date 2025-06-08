@@ -166,3 +166,32 @@ function redirectToSummary() {
     alert(`Discount Code: ${discountCode}\nTotal Cost: $${totalCost} NZD`);
     window.location.href = "summary.html";
 }
+
+function redirectToSummary() {
+    // Retrieve values from localStorage
+    insuranceCost = Number(localStorage.getItem("insuranceCost")) || 0;
+    carIndex = Number(localStorage.getItem("carIndex"));
+    rentalDays = Number(localStorage.getItem("rentalDays"));
+    pricePerDay = prices[carIndex];
+
+    // Retrieve discount code from input
+    discountCode = document.getElementById("i_discountCode").value.trim();
+
+    // Calculate total cost
+    if (discountOffers.includes(discountCode)) {
+        const discountAmount = 0.1 * (pricePerDay * rentalDays + insuranceCost);
+        totalCost = (pricePerDay * rentalDays + insuranceCost) - discountAmount;
+    } else {
+        totalCost = (pricePerDay * rentalDays + insuranceCost);
+    }
+
+    // Save values
+    localStorage.setItem("discountCode", discountCode);
+    localStorage.setItem("totalCost", totalCost);
+
+    // Alert user for confirmation
+    alert(`Discount Code: ${discountCode}\nTotal Cost: $${totalCost} NZD`);
+
+    // Redirect to summary page
+    window.location.href = "summary.html";
+}
