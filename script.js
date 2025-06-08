@@ -108,10 +108,10 @@ function redirectToDiscount() {
 }
 
 function redirectToDiscountCode() {
-    const discountOption = document.getElementById("i_discountCode").value;
+    const discountOption = document.getElementById("i_discount").value;
     if (discountOption === "Yes"){
          window.location.href = "discount_code.html";
-    localStorage.setItem("discountCode", discountCode);
+    localStorage.setItem("discount", discountCode);
     }
     else{
          window.location.href = "summary.html";
