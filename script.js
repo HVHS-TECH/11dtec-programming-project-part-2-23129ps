@@ -111,12 +111,12 @@ function redirectToDiscountCode() {
     const discountOption = document.getElementById("i_insurance").value;
     if (discountCode === "Yes"){
          window.location.href = "discount_code.html";
+           discountCode = document.getElementById("i_discountCode").value;
+    localStorage.setItem("discountCode", discountCode);
     }
     else{
          window.location.href = "summary.html";
     }
-    discountCode = document.getElementById("i_discountCode").value;
-    localStorage.setItem("discountCode", discountCode);
 }
 
 function redirectToSummary() {
