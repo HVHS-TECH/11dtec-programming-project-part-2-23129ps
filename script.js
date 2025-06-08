@@ -140,5 +140,5 @@ function redirectToSummary() {
   else {
     totalCost = pricePerDay * rentalDays + insuranceCost;
   }
-    
+     window.location.href = "summary.html";
 }
