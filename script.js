@@ -142,3 +142,27 @@ function redirectToSummary() {
   }
      window.location.href = "summary.html";
 }
+
+function redirectToSummary() {
+    lateFees = Number(document.getElementById("i_lateFees").value);
+    insuranceCost = Number(localStorage.getItem("insuranceCost"));
+    carIndex = Number(localStorage.getItem("carIndex"));
+    rentalDays = Number(localStorage.getItem("rentalDays"));
+    pricePerDay = prices[carIndex];
+
+    discountCode = document.getElementById("i_discountCode").value.trim();
+
+    if (discountOffers.includes(discountCode)) {
+        const discountAmount = 0.1 * (pricePerDay * rentalDays + insuranceCost);
+        totalCost = (pricePerDay * rentalDays + insuranceCost) - discountAmount;
+    } else {
+        totalCost = (pricePerDay * rentalDays + insuranceCost);
+    }
+
+    localStorage.setItem("discountCode", discountCode);
+    localStorage.setItem("lateFees", lateFees);
+    localStorage.setItem("totalCost", totalCost);
+
+    alert(`Discount Code: ${discountCode}\nTotal Cost: $${totalCost} NZD`);
+    window.location.href = "summary.html";
+}
