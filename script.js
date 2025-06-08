@@ -190,7 +190,6 @@ function redirectToSummary() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-        localStorage.setItem("lateFees", lateFees);
     // Retrieve stored values
     const userName = localStorage.getItem("username");
     const userAge = localStorage.getItem("userAge");
@@ -198,6 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const carIndex = Number(localStorage.getItem("carIndex"));
     const rentalDays = Number(localStorage.getItem("rentalDays"));
     const pricePerDay = carIndex >= 0 ? prices[carIndex] : 0;
+    lateFees = Number(localStorage.getItem("lateFees"));
     const insuranceCost = Number(localStorage.getItem("insuranceCost")) || 0;
     const discountCode = localStorage.getItem("discountCode") || "None";
     const totalCost = Number(localStorage.getItem("totalCost")) || 0;
@@ -212,6 +212,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <p><strong>Car Chosen:</strong> ${carChoice}</p>
         <p><strong>Rental Days:</strong> ${rentalDays}</p>
         <p><strong>Price per Day:</strong> $${pricePerDay.toFixed(2)}</p>
+
         <p><strong>Insurance Cost:</strong> $${insuranceCost.toFixed(2)}</p>
         <p><strong>Discount Code Used:</strong> ${discountCode}</p>
         <p><strong>Discount Applied:</strong> $${discountAmount.toFixed(2)}</p>
