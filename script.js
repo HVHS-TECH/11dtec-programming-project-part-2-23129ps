@@ -144,11 +144,7 @@ function redirectToSummary() {
 }
 
 function redirectToSummary() {
-    lateFees = Number(document.getElementById("i_lateFees").value);
-    insuranceCost = Number(localStorage.getItem("insuranceCost"));
-    carIndex = Number(localStorage.getItem("carIndex"));
-    rentalDays = Number(localStorage.getItem("rentalDays"));
-    pricePerDay = prices[carIndex];
+   
 
     discountCode = document.getElementById("i_discountCode").value.trim();
 
@@ -160,10 +156,7 @@ function redirectToSummary() {
     }
 
     localStorage.setItem("discountCode", discountCode);
-    localStorage.setItem("lateFees", lateFees);
     localStorage.setItem("totalCost", totalCost);
-
-    alert(`Discount Code: ${discountCode}\nTotal Cost: $${totalCost} NZD`);
     window.location.href = "summary.html";
 }
 
@@ -197,12 +190,13 @@ function redirectToSummary() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+        localStorage.setItem("lateFees", lateFees);
     // Retrieve stored values
-    const userName = localStorage.getItem("username") || "N/A";
-    const userAge = localStorage.getItem("userAge") || "N/A";
-    const carChoice = localStorage.getItem("carChoice") || "N/A";
+    const userName = localStorage.getItem("username");
+    const userAge = localStorage.getItem("userAge");
+    const carChoice = localStorage.getItem("carChoice");
     const carIndex = Number(localStorage.getItem("carIndex"));
-    const rentalDays = Number(localStorage.getItem("rentalDays")) || 0;
+    const rentalDays = Number(localStorage.getItem("rentalDays"));
     const pricePerDay = carIndex >= 0 ? prices[carIndex] : 0;
     const insuranceCost = Number(localStorage.getItem("insuranceCost")) || 0;
     const discountCode = localStorage.getItem("discountCode") || "None";
