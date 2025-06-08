@@ -202,8 +202,7 @@ if (carIndex >= 0) {
 } else {
     pricePerDay = 0;
 }
-
-    lateFees = Number(localStorage.getItem("lateFees"));
+    lateFees = lateFeeRates[carIndex];
     const insuranceCost = Number(localStorage.getItem("insuranceCost")) || 0;
     const discountCode = localStorage.getItem("discountCode") || "None";
     const totalCost = Number(localStorage.getItem("totalCost")) || 0;
@@ -218,7 +217,7 @@ if (carIndex >= 0) {
         <p><strong>Car Chosen:</strong> ${carChoice}</p>
         <p><strong>Rental Days:</strong> ${rentalDays}</p>
         <p><strong>Price per Day:</strong> $${pricePerDay.toFixed(2)}</p>
-
+        <p><strong>Late Fees:</strong> ${lateFees}</p>
         <p><strong>Insurance Cost:</strong> $${insuranceCost.toFixed(2)}</p>
         <p><strong>Discount Code Used:</strong> ${discountCode}</p>
         <p><strong>Discount Applied:</strong> $${discountAmount.toFixed(2)}</p>
