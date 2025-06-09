@@ -11,6 +11,7 @@ let lateFees = 0;
 let carChoice = "";
 let rentalDays = 0;
 let carIndex;
+let discountAmount = 0;
 
 // Arrays
 const cars = ["Solo Hoverpod", "Smart Fortwo", "Mazda RX-8", "Toyota Camry", "Honda CR-V",
@@ -101,7 +102,6 @@ function redirectToDiscount() {
     if (insuranceOption === "Yes") {
         insuranceCost = insuranceRates[carIndex] * rentalDays;
         localStorage.setItem("insuranceCost", insuranceCost);
-        alert(`Insurance Cost: $${insuranceCost} NZD`);
     }
 
     window.location.href = "discounts.html";
@@ -119,71 +119,32 @@ function redirectToDiscountCode() {
 }
 
 function redirectToSummary() {
-    lateFees = document.getElementById("i_lateFees").value;
-    insuranceCost = localStorage.getItem("insuranceCost");
-    carIndex = localStorage.getItem("carIndex");
-    rentalDays = localStorage.getItem("rentalDays");
-    pricePerDay = prices[carIndex];
-
-    totalCost = (pricePerDay * rentalDays) + insuranceCost + lateFees;
-
-    localStorage.setItem("lateFees", lateFees);
-    localStorage.setItem("totalCost", totalCost);
-
-        const discounts = document.getElementById("i_discountCode").value;
-      if (discountOffers.includes(discounts)) {
-    totalCost = 0.9*(pricePerDay * rentalDays + insuranceCost);
-    discount = 0.1* totalCost;
-
-    alert(userName + userAge + rentalDays+ insuranceCost + discounts+ totalCost);
-  }
-  else {
-    totalCost = pricePerDay * rentalDays + insuranceCost;
-  }
-     window.location.href = "summary.html";
-}
-
-function redirectToSummary() {
-   
-
-    discountCode = document.getElementById("i_discountCode").value.trim();
-
-    if (discountOffers.includes(discountCode)) {
-        const discountAmount = 0.1 * (pricePerDay * rentalDays + insuranceCost);
-        totalCost = (pricePerDay * rentalDays + insuranceCost) - discountAmount;
-    } else {
-        totalCost = (pricePerDay * rentalDays + insuranceCost);
-    }
-
-    localStorage.setItem("discountCode", discountCode);
-    localStorage.setItem("totalCost", totalCost);
-    window.location.href = "summary.html";
-}
-
-function redirectToSummary() {
     // Retrieve values from localStorage
-    insuranceCost = Number(localStorage.getItem("insuranceCost")) || 0;
-    carIndex = Number(localStorage.getItem("carIndex"));
-    rentalDays = Number(localStorage.getItem("rentalDays"));
-    pricePerDay = prices[carIndex];
+      const errorElement = document.getElementById("discountCodeError"); 
+    const insuranceCost = Number(localStorage.getItem("insuranceCost")) || 0;
+    const carIndex = Number(localStorage.getItem("carIndex"));
+    const rentalDays = Number(localStorage.getItem("rentalDays"));
+    const pricePerDay = prices[carIndex];
 
     // Retrieve discount code from input
-    discountCode = document.getElementById("i_discountCode").value.trim();
+    const discountCode = document.getElementById("i_discountCode").value.trim();
 
-    // Calculate total cost
+    // Calculate total cost with discount if applicable
+    let totalCost = pricePerDay * rentalDays + insuranceCost;
+    let discountAmount = 0;
+
     if (discountOffers.includes(discountCode)) {
-        const discountAmount = 0.1 * (pricePerDay * rentalDays + insuranceCost);
-        totalCost = (pricePerDay * rentalDays + insuranceCost) - discountAmount;
-    } else {
-        totalCost = (pricePerDay * rentalDays + insuranceCost);
+        discountAmount = 0.1 * totalCost;
+        totalCost = totalCost - discountAmount;
+    }
+    else {
+        errorElement.textContent = "Sorry, you have entered a wrong discount code.";
+        return;
     }
 
     // Save values
     localStorage.setItem("discountCode", discountCode);
     localStorage.setItem("totalCost", totalCost);
-
-    // Alert user for confirmation
-    alert(`Discount Code: ${discountCode}\nTotal Cost: $${totalCost} NZD`);
 
     // Redirect to summary page
     window.location.href = "summary.html";
@@ -196,21 +157,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const carChoice = localStorage.getItem("carChoice");
     const carIndex = Number(localStorage.getItem("carIndex"));
     const rentalDays = Number(localStorage.getItem("rentalDays"));
-    let pricePerDay;
-if (carIndex >= 0) {
-    pricePerDay = prices[carIndex];
-} else {
-    pricePerDay = 0;
-}
-    lateFees = lateFeeRates[carIndex];
+    const pricePerDay = carIndex >= 0 ? prices[carIndex] : 0;
+    const lateFees = lateFeeRates[carIndex];
     const insuranceCost = Number(localStorage.getItem("insuranceCost")) || 0;
     const discountCode = localStorage.getItem("discountCode") || "None";
     const totalCost = Number(localStorage.getItem("totalCost")) || 0;
+    const discountAmount = discountOffers.includes(discountCode) ? 0.1 * (pricePerDay * rentalDays + insuranceCost) : 0;
 
-    // Calculate discount amount
-    let discountAmount = discountOffers.includes(discountCode) ? 0.1 * (pricePerDay * rentalDays + insuranceCost) : 0;
-
-    // Generate summary content using template literals
+    // Generate summary content
     const summaryContent = `
         <p><strong>Name:</strong> ${userName}</p>
         <p><strong>Age:</strong> ${userAge}</p>
