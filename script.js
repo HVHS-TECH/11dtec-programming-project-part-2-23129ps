@@ -162,7 +162,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const insuranceCost = Number(localStorage.getItem("insuranceCost")) || 0;
     const discountCode = localStorage.getItem("discountCode") || "None";
     const totalCost = Number(localStorage.getItem("totalCost")) || 0;
-    const discountAmount = discountOffers.includes(discountCode) ? 0.1 * (pricePerDay * rentalDays + insuranceCost) : 0;
+    if (discountOffers.includes(discountCode)) {
+    discountAmount = 0.1 * (pricePerDay * rentalDays + insuranceCost);
+}
+
 
     // Generate summary content
     const summaryContent = `
