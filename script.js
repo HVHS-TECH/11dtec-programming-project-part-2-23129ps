@@ -103,6 +103,9 @@ function redirectToDiscount() {
         insuranceCost = insuranceRates[carIndex] * rentalDays;
         localStorage.setItem("insuranceCost", insuranceCost);
     }
+    else {
+        insuranceCost = 0;
+    }
 
     window.location.href = "discounts.html";
 }
