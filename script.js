@@ -85,8 +85,12 @@ function redirectToInsurance() {
 
     errorElement.textContent = ""; // Clear previous error message
 
-    if (!rentalDays || rentalDays < 1 || rentalDays > 90) {
+    if (rentalDays < 1 || rentalDays > 90) {
         errorElement.textContent = "Sorry, you can only rent a car for 1 to 90 days.";
+        return;
+    }
+    else if (!rentalDays){
+        errorElement.textContent = "Please fill out this required field.";
         return;
     }
 
@@ -96,12 +100,19 @@ function redirectToInsurance() {
 
 function redirectToDiscount() {
     const insuranceOption = document.getElementById("i_insurance").value;
+     const errorElement = document.getElementById("insuranceError");
+      errorElement.textContent = "";
     carIndex = localStorage.getItem("carIndex") || -1;
     rentalDays = localStorage.getItem("rentalDays") || 0;
-
-    if (insuranceOption === "Yes") {
+    console.log(insuranceOption);
+    if (insuranceOption == "Yes") {
+        console.log("")
         insuranceCost = insuranceRates[carIndex] * rentalDays;
         localStorage.setItem("insuranceCost", insuranceCost);
+    }
+    else if (!insuranceOption){
+        errorElement.textContent = "Please fill out this required field.";
+        return;
     }
     else {
         insuranceCost = 0;
@@ -112,11 +123,18 @@ function redirectToDiscount() {
 
 function redirectToDiscountCode() {
     const discountOption = document.getElementById("i_discount").value;
+     const errorElement = document.getElementById("discountError");
+      errorElement.textContent = "";
+
     if (discountOption === "Yes"){
          window.location.href = "discount_code.html";
     localStorage.setItem("discount", discountCode);
     }
+    else if (!discountOption){
+      errorElement.textContent = "Please fill out this required field.";
+    }
     else{
+
          window.location.href = "summary.html";
     }
 }
