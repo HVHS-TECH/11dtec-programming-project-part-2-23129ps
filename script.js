@@ -158,7 +158,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const carIndex = Number(localStorage.getItem("carIndex"));
     const rentalDays = Number(localStorage.getItem("rentalDays"));
     pricePerDay = prices[carIndex];
-
     const lateFees = lateFeeRates[carIndex];
     const insuranceCost = Number(localStorage.getItem("insuranceCost")) || 0;
     const discountCode = localStorage.getItem("discountCode") || "None";
