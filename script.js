@@ -103,18 +103,25 @@ function redirectToDiscount() {
     insuranceOption = document.getElementById("i_insurance").value;
     errorElement = document.getElementById("insuranceError");
     errorElement.textContent = "";
-    carIndex = localStorage.getItem("carIndex");
-    rentalDays = localStorage.getItem("rentalDays");
-    if (insuranceOption == "Yes") {
+
+    // Retrieve carIndex and rentalDays correctly as numbers
+    carIndex = parseInt(localStorage.getItem("carIndex"), 10);
+    rentalDays = parseInt(localStorage.getItem("rentalDays"), 10);
+
+    // Debugging to check values
+    console.log("Car Index:", carIndex);
+    console.log("Rental Days:", rentalDays);
+    console.log("Insurance Rate:", insuranceRates[carIndex]);
+
+    if (insuranceOption === "Yes") {
         insuranceCost = insuranceRates[carIndex] * rentalDays;
-    }
-    else if (!insuranceOption){
+    } else if (!insuranceOption) {
         errorElement.textContent = "Please fill out this required field.";
         return;
-    }
-    else {
+    } else {
         insuranceCost = 0;
     }
+
     localStorage.setItem("insuranceCost", insuranceCost);
     window.location.href = "discounts.html";
 }
