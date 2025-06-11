@@ -12,6 +12,7 @@
     <h1>Rental Summary</h1>
     <p><strong>Name:</strong> <span id="summaryName"></span></p>
     <p><strong>Age:</strong> <span id="summaryAge"></span></p>
+    <p><strong>Car Chossen:</strong> <span id="summaryCar"></span></p>
     <p><strong>Rental Days:</strong> <span id="summaryDays"></span></p>
     <p><strong>Insurance Cost:</strong> <span id="summaryInsurance"></span></p>
     <p><strong>Discount offered:</strong> <span id="summaryDiscount"></span></p>
@@ -20,6 +21,7 @@
     <script>
         document.getElementById("summaryName").textContent = localStorage.getItem("userName");
         document.getElementById("summaryAge").textContent = localStorage.getItem("userAge");
+        document.getElementById("summaryCar").textContent = localStorage.getItem("carChoice");
         document.getElementById("summaryDays").textContent = localStorage.getItem("rentalDays");
         document.getElementById("summaryInsurance").textContent = localStorage.getItem("insuranceCost");
         document.getElementById("summaryDiscount").textContent = localStorage.getItem("discounts");
