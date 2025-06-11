@@ -104,7 +104,7 @@ function redirectToDiscount() {
     errorElement = document.getElementById("insuranceError");
     errorElement.textContent = "";
     carIndex = localStorage.getItem("carIndex");
-    rentalDays = localStorage.getItem("rentalDays") || 0;
+    rentalDays = localStorage.getItem("rentalDays");
     if (insuranceOption == "Yes") {
         insuranceCost = insuranceRates[carIndex] * rentalDays;
     }
