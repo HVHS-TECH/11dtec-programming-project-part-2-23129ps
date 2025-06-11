@@ -72,7 +72,6 @@ function redirectToDays() {
     carChoice = document.getElementById("i_carChoice").value;
     carIndex = cars.indexOf(carChoice);
     localStorage.setItem("carChoice", carChoice);
-    localStorage.setItem("carIndex", carIndex);
     errorElement = document.getElementById("carError");
 
     if (!carChoice) {
@@ -116,7 +115,7 @@ function redirectToDiscount() {
     else {
         insuranceCost = 0;
     }
-
+    localStorage.setItem("insuranceCost", insuranceCost);
     window.location.href = "discounts.html";
 }
 
