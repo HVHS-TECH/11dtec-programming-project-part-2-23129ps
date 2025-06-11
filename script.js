@@ -12,9 +12,13 @@ let carChoice = "";
 let rentalDays = 0;
 let carIndex;
 let discountAmount = 0;
+let insuranceOption= "";
+let discountOption ="";
+let userName;
+let userAge;
 
 // Arrays
-const cars = ["Solo Hoverpod", "Smart Fortwo", "Mazda RX-8", "Toyota Camry", "Honda CR-V",
+const cars = ["Solo EV", "Smart Fortwo", "Mazda RX-8", "Toyota Camry", "Honda CR-V",
     "Chevrolet Suburban", "Mercedes-Benz Sprinter", "Ford Transit", "Toyota HiAce"
 ];
 
@@ -29,8 +33,10 @@ function redirectToUserName() {
 }
 
 function redirectToUserAge() {
-    const userName = document.getElementById("i_userName").value;
-    const errorElement = document.getElementById("userNameError");
+    userName = document.getElementById("i_userName").value;
+    localStorage.setItem("userName", userName);
+
+    errorElement = document.getElementById("userNameError");
 
     errorElement.textContent = ""; // Clear previous error message
 
@@ -41,14 +47,13 @@ function redirectToUserAge() {
         errorElement.textContent = "Please enter a valid name.";
         return;
     } else {
-        localStorage.setItem("username", userName);
         window.location.href = "user_age.html";
     }
 }
 
 function redirectToCarChoice() {
-    const userAge = document.getElementById("i_userAge").value;
-    const errorElement = document.getElementById("userAgeError");
+    userAge = document.getElementById("i_userAge").value;
+    errorElement = document.getElementById("userAgeError");
 
     errorElement.textContent = ""; // Clear previous error message
 
@@ -59,29 +64,24 @@ function redirectToCarChoice() {
         errorElement.textContent = "Sorry, you need to be aged between 18-65 to rent a car.";
         return;
     } else {
-        localStorage.setItem("userAge", userAge);
         window.location.href = "car_choice.html";
     }
 }
-
 function redirectToDays() {
     carChoice = document.getElementById("i_carChoice").value;
     carIndex = cars.indexOf(carChoice);
-    const errorElement = document.getElementById("carError");
+    errorElement = document.getElementById("carError");
 
-    if (carIndex === -1) {
+    if (!carChoice) {
         errorElement.textContent = "Please fill out this required field.";
         return;
     }
-
-    localStorage.setItem("carChoice", carChoice);
-    localStorage.setItem("carIndex", carIndex);
     window.location.href = "days.html";
 }
 
 function redirectToInsurance() {
     rentalDays = document.getElementById("i_rentaldays").value;
-    const errorElement = document.getElementById("daysError");
+    errorElement = document.getElementById("daysError");
 
     errorElement.textContent = ""; // Clear previous error message
 
@@ -93,22 +93,17 @@ function redirectToInsurance() {
         errorElement.textContent = "Please fill out this required field.";
         return;
     }
-
-    localStorage.setItem("rentalDays", rentalDays);
     window.location.href = "insurance.html";
 }
 
 function redirectToDiscount() {
-    const insuranceOption = document.getElementById("i_insurance").value;
-     const errorElement = document.getElementById("insuranceError");
-      errorElement.textContent = "";
-    carIndex = localStorage.getItem("carIndex") || -1;
+    insuranceOption = document.getElementById("i_insurance").value;
+    errorElement = document.getElementById("insuranceError");
+    errorElement.textContent = "";
+    carIndex = localStorage.getItem("carIndex");
     rentalDays = localStorage.getItem("rentalDays") || 0;
-    console.log(insuranceOption);
     if (insuranceOption == "Yes") {
-        console.log("")
         insuranceCost = insuranceRates[carIndex] * rentalDays;
-        localStorage.setItem("insuranceCost", insuranceCost);
     }
     else if (!insuranceOption){
         errorElement.textContent = "Please fill out this required field.";
@@ -122,13 +117,12 @@ function redirectToDiscount() {
 }
 
 function redirectToDiscountCode() {
-    const discountOption = document.getElementById("i_discount").value;
-     const errorElement = document.getElementById("discountError");
+    discountOption = document.getElementById("i_discount").value;
+    errorElement = document.getElementById("discountError");
       errorElement.textContent = "";
 
     if (discountOption === "Yes"){
          window.location.href = "discount_code.html";
-    localStorage.setItem("discount", discountCode);
     }
     else if (!discountOption){
       errorElement.textContent = "Please fill out this required field.";
@@ -140,19 +134,11 @@ function redirectToDiscountCode() {
 }
 
 function redirectToSummary() {
-    // Retrieve values from localStorage
-      const errorElement = document.getElementById("discountCodeError"); 
-    const insuranceCost = Number(localStorage.getItem("insuranceCost")) || 0;
-    const carIndex = Number(localStorage.getItem("carIndex"));
-    const rentalDays = Number(localStorage.getItem("rentalDays"));
-    const pricePerDay = prices[carIndex];
-
-    // Retrieve discount code from input
-    const discountCode = document.getElementById("i_discountCode").value.trim();
+    errorElement = document.getElementById("discountCodeError"); 
+    discountCode = document.getElementById("i_discountCode").value.trim();
 
     // Calculate total cost with discount if applicable
-    let totalCost = pricePerDay * rentalDays + insuranceCost;
-    let discountAmount = 0;
+    totalCost = pricePerDay * rentalDays + insuranceCost;
 
     if (discountOffers.includes(discountCode)) {
         discountAmount = 0.1 * totalCost;
@@ -162,46 +148,5 @@ function redirectToSummary() {
         errorElement.textContent = "Sorry, you have entered a wrong discount code.";
         return;
     }
-
-    // Save values
-    localStorage.setItem("discountCode", discountCode);
-    localStorage.setItem("totalCost", totalCost);
-
-    // Redirect to summary page
     window.location.href = "summary.html";
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Retrieve stored values
-    const userName = localStorage.getItem("username");
-    const userAge = localStorage.getItem("userAge");
-    const carChoice = localStorage.getItem("carChoice");
-    const carIndex = Number(localStorage.getItem("carIndex"));
-    const rentalDays = Number(localStorage.getItem("rentalDays"));
-    pricePerDay = prices[carIndex];
-    const lateFees = lateFeeRates[carIndex];
-    const insuranceCost = Number(localStorage.getItem("insuranceCost")) || 0;
-    const discountCode = localStorage.getItem("discountCode") || "None";
-    const totalCost = Number(localStorage.getItem("totalCost")) || 0;
-    if (discountOffers.includes(discountCode)) {
-    discountAmount = 0.1 * (pricePerDay * rentalDays + insuranceCost);
-}
-
-
-    // Generate summary content
-    const summaryContent = `
-        <p><strong>Name:</strong> ${userName}</p>
-        <p><strong>Age:</strong> ${userAge}</p>
-        <p><strong>Car Chosen:</strong> ${carChoice}</p>
-        <p><strong>Rental Days:</strong> ${rentalDays}</p>
-        <p><strong>Price per Day:</strong> $${pricePerDay.toFixed(2)}</p>
-        <p><strong>Late Fees:</strong> $${lateFees}</p>
-        <p><strong>Insurance Cost:</strong> $${insuranceCost.toFixed(2)}</p>
-        <p><strong>Discount Code Used:</strong> ${discountCode}</p>
-        <p><strong>Discount Applied:</strong> $${discountAmount.toFixed(2)}</p>
-        <p><strong>Total Cost:</strong> $${totalCost.toFixed(2)}</p>
-    `;
-
-    // Insert summary into the page
-    document.getElementById("summaryDetails").innerHTML = summaryContent;
-});

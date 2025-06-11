@@ -8,9 +8,14 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <header class="title w3-container w3-center w3-animate-left">Priya's Rentals</header>
+    <header class="title">Priya's Rentals</header>
     <h1>Rental Summary</h1>
-
-    <div id="summaryDetails"></div> 
+    <p><strong>Name:</strong> <span id="summaryName"></span></p>
+    <p><strong>Age:</strong> <span id="summaryAge"></span></p>
+    <script>
+        document.getElementById("summaryName").textContent = localStorage.getItem("userName");
+        document.getElementById("summaryAge").textContent = localStorage.getItem("userAge");
+        document.getElementById("summaryDays").textContent = localStorage.getItem("rentalDays");
+    </script>
 </body>
 </html>
