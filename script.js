@@ -53,6 +53,7 @@ function redirectToUserAge() {
 
 function redirectToCarChoice() {
     userAge = document.getElementById("i_userAge").value;
+    localStorage.setItem("userAge", userAge);
     errorElement = document.getElementById("userAgeError");
 
     errorElement.textContent = ""; // Clear previous error message
