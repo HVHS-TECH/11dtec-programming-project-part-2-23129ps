@@ -71,8 +71,6 @@ function redirectToCarChoice() {
 function redirectToDays() {
     carChoice = document.getElementById("i_carChoice").value;
     carIndex = cars.indexOf(carChoice);
-    localStorage.setItem("userAge", userAge);
-    localStorage.setItem("userAge", userAge);
     errorElement = document.getElementById("carError");
 
     if (!carChoice) {
