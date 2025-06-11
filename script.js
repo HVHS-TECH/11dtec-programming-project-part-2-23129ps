@@ -8,7 +8,7 @@ let discountCode = "";
 let totalCost = 0;
 let pricePerDay = 0;
 let lateFees = 0;
-let carChoice;
+let carChoice = "";
 let rentalDays = 0;
 let carIndex;
 let discountAmount = 0;
@@ -106,7 +106,7 @@ function redirectToDiscount() {
     carIndex = localStorage.getItem("carIndex");
     rentalDays = localStorage.getItem("rentalDays");
     if (insuranceOption == "Yes") {
-        insuranceCost = insuranceRates[carChoice] * rentalDays;
+        insuranceCost = insuranceRates[carIndex] * rentalDays;
     }
     else if (!insuranceOption){
         errorElement.textContent = "Please fill out this required field.";
