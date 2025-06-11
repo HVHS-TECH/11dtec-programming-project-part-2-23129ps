@@ -15,14 +15,14 @@
     <p><strong>Rental Days:</strong> <span id="summaryDays"></span></p>
     <p><strong>Insurance Cost:</strong> <span id="summaryInsurance"></span></p>
     <p><strong>Discount offered:</strong> <span id="summaryDiscount"></span></p>
-    <p><strong>Late fess (If car isn't returned on time):</strong> <span id="summaryDiscount"></span></p>
-    <p><strong>Total Cost:</strong> <span id="summaryDays"></span></p>
+    <p><strong>Late fess (If car isn't returned on time):</strong> <span id="summarylateFees"></span></p>
+    <p><strong>Total Cost:</strong> <span id="summaryTotalCost"></span></p>
     <script>
         document.getElementById("summaryName").textContent = localStorage.getItem("userName");
         document.getElementById("summaryAge").textContent = localStorage.getItem("userAge");
         document.getElementById("summaryDays").textContent = localStorage.getItem("rentalDays");
         document.getElementById("summaryInsurance").textContent = localStorage.getItem("insuranceCost");
-        document.getElementById("summarydiscount").textContent = localStorage.getItem("discounts");
+        document.getElementById("summaryDiscount").textContent = localStorage.getItem("discounts");
         document.getElementById("summarylateFees").textContent = localStorage.getItem("lateFees");
         document.getElementById("summaryTotalCost").textContent = localStorage.getItem("Total Cost");
     </script>
