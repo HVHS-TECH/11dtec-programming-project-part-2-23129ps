@@ -81,6 +81,7 @@ function redirectToDays() {
 
 function redirectToInsurance() {
     rentalDays = document.getElementById("i_rentaldays").value;
+    localStorage.setItem("rentalDays", rentalDays);
     errorElement = document.getElementById("daysError");
 
     errorElement.textContent = ""; // Clear previous error message
