@@ -18,12 +18,12 @@ let userName;
 let userAge;
 
 // Arrays
-const cars = ["Solo EV", "Smart Fortwo", "Mazda RX-8", "Toyota Camry", "Honda CR-V",
+const cars = [""+ "Solo EV", "Smart Fortwo", "Mazda RX-8", "Toyota Camry", "Honda CR-V",
     "Chevrolet Suburban", "Mercedes-Benz Sprinter", "Ford Transit", "Toyota HiAce"
 ];
 
 const prices = [50, 40, 70, 55, 60, 85, 100, 90, 80]; // Prices in NZD
-const insuranceRates = [10, 8, 12, 9, 10, 15, 20, 18, 17]; // Insurance per day
+const insuranceRates = [0, 10, 8, 12, 9, 10, 15, 20, 18, 17]; // Insurance per day
 const lateFeeRates = [20, 15, 25, 18, 20, 30, 35, 32, 30]; // Late return penalty per day
 const discountOffers = ["SUMMER", "EARLYBIRD", "WEEKLY10"]; // Discount codes
 
