@@ -27,7 +27,7 @@ const discountOffers = ["SUMMER", "EARLYBIRD", "WEEKLY10"]; // Discount codes
 
 // Function to redirect pages
 function redirectToGetUserInfo() {
-    window.location.href = "user_name.html";
+    window.location.href = "user_info.html";
 
     userName = document.getElementById("i_userName").value;
 
