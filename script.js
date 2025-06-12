@@ -77,6 +77,7 @@ function redirectToDays() {
          for (i = 0; i < cars.length; i++) {
         if (carChoice === cars[i]) {
             carFound = true;
+            
             alert(`User selected: ${cars[i]}`);
             break; 
         }
