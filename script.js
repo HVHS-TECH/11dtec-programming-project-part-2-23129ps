@@ -28,9 +28,12 @@ const discountOffers = ["SUMMER", "EARLYBIRD", "WEEKLY10"]; // Discount codes
 // Function to redirect pages
 function redirectToGetUserInfo() {
     window.location.href = "user_name.html";
+
     userName = document.getElementById("i_userName").value;
+
     localStorage.setItem("userName", userName);
-    errorElement = document.getElementById("userNameError");
+
+    errorElement = document.getElementById("userInfoError");
 
     errorElement.textContent = ""; // Clear previous error message
 
@@ -41,6 +44,7 @@ function redirectToGetUserInfo() {
         errorElement.textContent = "Please enter a valid name.";
         return;
     }
+    
        userAge = document.getElementById("i_userAge").value;
     localStorage.setItem("userAge", userAge);
     errorElement = document.getElementById("userAgeError");
@@ -61,14 +65,6 @@ carChoice = document.getElementById("i_carChoice").value;
         errorElement.textContent = "Please fill out this required field.";
         return;
     }
-}
-
-
-
-
-
-
-function redirectToInsurance() {
     rentalDays = document.getElementById("i_rentaldays").value;
     localStorage.setItem("rentalDays", rentalDays);
     errorElement = document.getElementById("daysError");
@@ -83,8 +79,6 @@ function redirectToInsurance() {
         errorElement.textContent = "Please fill out this required field.";
         return;
     }
-     let carIndex = cars.indexOf(i);
-    
-        alert(`Price: ${prices[carIndex] * rentalDays} NZD`);
 }
+
 
