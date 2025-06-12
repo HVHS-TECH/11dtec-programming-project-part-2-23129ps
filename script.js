@@ -54,30 +54,19 @@ function redirectToGetUserInfo() {
         errorElement.textContent = "Sorry, you need to be aged between 18-65 to rent a car.";
         return;
     }
-
-}
-
-
-
-
-function redirectToDays() {
-    carChoice = document.getElementById("i_carChoice").value;
+carChoice = document.getElementById("i_carChoice").value;
     errorElement = document.getElementById("carError");
 
     if (!carChoice) {
         errorElement.textContent = "Please fill out this required field.";
         return;
     }
-         for (i = 0; i < cars.length; i++) {
-        if (carChoice === cars[i]) {
-            carFound = true;
-
-            alert(`User selected: ${cars[i]}`);
-            break; 
-        }
-    }
-    window.location.href = "days.html";
 }
+
+
+
+
+
 
 function redirectToInsurance() {
     rentalDays = document.getElementById("i_rentaldays").value;
