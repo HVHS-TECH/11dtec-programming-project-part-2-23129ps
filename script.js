@@ -26,8 +26,7 @@ const lateFeeRates = [20, 21, 25, 27, 28, 30, 35, 36, 37]; // Late return penalt
 const discountOffers = ["SUMMER", "EARLYBIRD", "WEEKLY10"]; // Discount codes
 
 // Function to redirect pages
-function redirectToGetUserInfo() {
-    window.location.href = "user_info.html";
+function getUserInfo() {
 
     userName = document.getElementById("i_userName").value;
 
