@@ -57,7 +57,7 @@ function getUserInfo() {
         daysError.textContent = "Sorry, you can only rent a car for 1 to 90 days.";
         return;
     }
-
+    
     localStorage.setItem("userName", userName);
     localStorage.setItem("userAge", userAge);
     localStorage.setItem("carChoice", carChoice);
