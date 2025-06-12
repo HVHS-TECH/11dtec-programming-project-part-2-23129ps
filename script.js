@@ -68,7 +68,7 @@ function getUserInfo() {
         return;
     }
 
-if (discountCode.trim() !== "") { // Only validate if the user enters something
+if (discountCode.trim() !== "") 
     if (discountOffers.includes(discountCode)) {
         discountAmount = 0.1 * totalCost;
         totalCost = totalCost - discountAmount;
