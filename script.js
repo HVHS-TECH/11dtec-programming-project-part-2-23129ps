@@ -100,6 +100,10 @@ function redirectToInsurance() {
         errorElement.textContent = "Please fill out this required field.";
         return;
     }
-    alert(`Price: ${prices[i]}`);
+     let carIndex = cars.indexOf(carChoice);
+    
+    if (carIndex !== -1) {
+        alert(`Price: ${prices[carIndex] * rentalDays} NZD`);
+    }
 }
 
