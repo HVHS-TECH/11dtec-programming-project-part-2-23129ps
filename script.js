@@ -74,10 +74,6 @@ function redirectToDays() {
         errorElement.textContent = "Please fill out this required field.";
         return;
     }
-
-    window.location.href = "days.html";
-}
-
          for (i = 0; i < cars.length; i++) {
         if (carChoice === cars[i]) {
             carFound = true;
@@ -85,7 +81,9 @@ function redirectToDays() {
             break; 
         }
     }
-    
+    window.location.href = "days.html";
+}
+
 function redirectToInsurance() {
     rentalDays = document.getElementById("i_rentaldays").value;
     localStorage.setItem("rentalDays", rentalDays);
