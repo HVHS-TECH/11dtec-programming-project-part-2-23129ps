@@ -8,7 +8,7 @@ let pricePerDay = 0;
 let lateFees = 0;
 let carChoice = "";
 let rentalDays = 0;
-  let carFound = true;
+let carFound = true;
 let discountAmount = 0;
 let insuranceOption= "";
 let discountOption ="";
@@ -100,7 +100,7 @@ function redirectToInsurance() {
         errorElement.textContent = "Please fill out this required field.";
         return;
     }
-     let carIndex = cars.indexOf(carChoice);
+     let carIndex = cars.indexOf(i);
     
         alert(`Price: ${prices[carIndex] * rentalDays} NZD`);
 }
