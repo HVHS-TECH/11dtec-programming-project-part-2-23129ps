@@ -102,8 +102,6 @@ function redirectToInsurance() {
     }
      let carIndex = cars.indexOf(carChoice);
     
-    if (carIndex !== -1) {
         alert(`Price: ${prices[carIndex] * rentalDays} NZD`);
-    }
 }
 
