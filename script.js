@@ -44,10 +44,10 @@ function redirectToGetUserInfo() {
         errorElement.textContent = "Please enter a valid name.";
         return;
     }
-    
-       userAge = document.getElementById("i_userAge").value;
+
+    userAge = document.getElementById("i_userAge").value;
     localStorage.setItem("userAge", userAge);
-    errorElement = document.getElementById("userAgeError");
+
 
     errorElement.textContent = ""; // Clear previous error message
 
@@ -59,7 +59,6 @@ function redirectToGetUserInfo() {
         return;
     }
 carChoice = document.getElementById("i_carChoice").value;
-    errorElement = document.getElementById("carError");
 
     if (!carChoice) {
         errorElement.textContent = "Please fill out this required field.";
@@ -67,7 +66,6 @@ carChoice = document.getElementById("i_carChoice").value;
     }
     rentalDays = document.getElementById("i_rentaldays").value;
     localStorage.setItem("rentalDays", rentalDays);
-    errorElement = document.getElementById("daysError");
 
     errorElement.textContent = ""; // Clear previous error message
 
