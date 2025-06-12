@@ -58,9 +58,6 @@ function getUserInfo() {
         return;
     }
     
-    localStorage.setItem("userName", userName);
-    localStorage.setItem("userAge", userAge);
-    localStorage.setItem("carChoice", carChoice);
-    localStorage.setItem("rentalDays", rentalDays);
+  
 
 }
