@@ -4,7 +4,7 @@
 let insuranceCost = 0;
 let discountCode = "";
 let totalCost = 0;
-let pricePerDay = 0;
+let pricePerDay =;
 let lateFees = 0;
 let carChoice = "";
 let rentalDays = 0;
