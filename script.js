@@ -30,8 +30,6 @@ function getUserInfo() {
 
     userName = document.getElementById("i_userName").value;
 
-    localStorage.setItem("userName", userName);
-
     errorElement = document.getElementById("userInfoError");
 
     errorElement.textContent = ""; // Clear previous error message
@@ -45,7 +43,6 @@ function getUserInfo() {
     }
 
     userAge = document.getElementById("i_userAge").value;
-    localStorage.setItem("userAge", userAge);
 
 
     errorElement.textContent = ""; // Clear previous error message
