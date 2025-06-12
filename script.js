@@ -11,6 +11,7 @@ let insuranceOption = "";
 let discountOption = "";
 let userName;
 let userAge;
+carIndex = -1;
 
 // Arrays
 const cars = ["Solo EV", "Smart Fortwo", "Mazda RX-8", "Toyota Camry", "Honda CR-V",
@@ -59,8 +60,7 @@ function getUserInfo() {
     }
 
     // Calculate the total cost
-    let carIndex = cars.indexOf(carChoice);
-    if (carIndex !== -1) {
+    if (carIndex = -1) {
         let totalCost = prices[carIndex] * rentalDays;
         alert(`Thank you, ${userName}. You have selected a ${carChoice} for ${rentalDays} days. Total cost: ${totalCost} NZD.`);
     } else {
