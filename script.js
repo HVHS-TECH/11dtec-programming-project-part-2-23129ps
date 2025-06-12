@@ -99,6 +99,6 @@ function redirectToInsurance() {
         errorElement.textContent = "Please fill out this required field.";
         return;
     }
-    alert(`User selected: ${prices[i]}`);
+    alert(`Price: ${prices[i]}`);
 }
 
