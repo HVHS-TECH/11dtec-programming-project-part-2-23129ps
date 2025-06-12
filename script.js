@@ -26,14 +26,10 @@ const lateFeeRates = [20, 21, 25, 27, 28, 30, 35, 36, 37]; // Late return penalt
 const discountOffers = ["SUMMER", "EARLYBIRD", "WEEKLY10"]; // Discount codes
 
 // Function to redirect pages
-function redirectToUserName() {
+function redirectToGetUserInfo() {
     window.location.href = "user_name.html";
-}
-
-function redirectToUserAge() {
     userName = document.getElementById("i_userName").value;
     localStorage.setItem("userName", userName);
-
     errorElement = document.getElementById("userNameError");
 
     errorElement.textContent = ""; // Clear previous error message
@@ -44,13 +40,8 @@ function redirectToUserAge() {
     } else if (!isNaN(userName)) {
         errorElement.textContent = "Please enter a valid name.";
         return;
-    } else {
-        window.location.href = "user_age.html";
     }
-}
-
-function redirectToCarChoice() {
-    userAge = document.getElementById("i_userAge").value;
+       userAge = document.getElementById("i_userAge").value;
     localStorage.setItem("userAge", userAge);
     errorElement = document.getElementById("userAgeError");
 
@@ -62,10 +53,13 @@ function redirectToCarChoice() {
     } else if (userAge < 18 || userAge > 65) {
         errorElement.textContent = "Sorry, you need to be aged between 18-65 to rent a car.";
         return;
-    } else {
-        window.location.href = "car_choice.html";
     }
+
 }
+
+
+
+
 function redirectToDays() {
     carChoice = document.getElementById("i_carChoice").value;
     errorElement = document.getElementById("carError");
