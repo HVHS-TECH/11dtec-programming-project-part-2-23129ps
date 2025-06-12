@@ -61,7 +61,6 @@ function getUserInfo() {
 
     // Calculate the total cost
     if (carIndex != -1) {
-        totalCost = prices[carIndex] * rentalDays;
         alert(`Thank you, ${userName}. You have selected a ${carChoice} for ${rentalDays} days. Total cost: ${totalCost} NZD.`);
     } else {
         alert("Error: Car not found in the list.");
