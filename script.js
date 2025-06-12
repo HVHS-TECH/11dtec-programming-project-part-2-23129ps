@@ -68,14 +68,15 @@ function getUserInfo() {
         return;
     }
 
-     if (discountOffers.includes(discountCode)) {
+if (discountCode.trim() !== "") { // Only validate if the user enters something
+    if (discountOffers.includes(discountCode)) {
         discountAmount = 0.1 * totalCost;
         totalCost = totalCost - discountAmount;
-    }
-    else {
+    } else {
         discountCodeError.textContent = "Sorry, you have entered a wrong discount code.";
         return;
     }
+}
 
     ///end///
     carIndex = cars.indexOf(carChoice);
