@@ -13,7 +13,7 @@ h1 {
   color: #333;
   margin-bottom: 10px;
   border-radius: 5cm;
-  padding-top: 4cm;
+  padding-top: 1cm;
 }
 
 header {
@@ -23,6 +23,7 @@ header {
     text-align: center;
     font-size: 50px;
     border-radius: 13px;
+    margin-bottom: 15px;
 }
 
 p {
@@ -87,3 +88,46 @@ span {
   margin-top: 10px;
 
 }
+
+.navbar {
+    background-color: #1A1A1D; /* Matching header color */
+    padding: 8px;
+    text-align: center;
+    border-radius: 23px;
+    margin-bottom: 0px;
+}
+
+.navbar a {
+    color: #F8F8F8; 
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.navbar a:hover {
+    background-color: #007bff; 
+    border-radius: 5px;
+}
+
+.about-container {
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin: auto;
+}
+
+.about-container p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.about-container h1 {
+    color: #1A1A1D;
+    font-size: 36px;
+}
+
+
