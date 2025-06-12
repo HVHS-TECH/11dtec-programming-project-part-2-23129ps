@@ -63,5 +63,4 @@ function getUserInfo() {
     localStorage.setItem("carChoice", carChoice);
     localStorage.setItem("rentalDays", rentalDays);
 
-    alert(`Thank you, ${userName}. You have selected a ${carChoice} for ${rentalDays} days.`);
 }
