@@ -77,7 +77,7 @@ carChoice = document.getElementById("i_carChoice").value;
         errorElement.textContent = "Please fill out this required field.";
         return;
     }
-    
+    window.location.href = "summary.html";
 }
 
 
