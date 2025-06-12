@@ -19,7 +19,7 @@ const cars = ["Solo EV", "Smart Fortwo", "Mazda RX-8", "Toyota Camry", "Honda CR
 
 const prices = [50, 40, 70, 55, 60, 80, 85, 90, 80]; // Prices in NZD
 
-// Function to get user input and validate form fields
+// Function to get user input, validate fields, and calculate total cost
 function getUserInfo() {
     userName = document.getElementById("i_userName").value;
     userAge = document.getElementById("i_userAge").value;
@@ -57,7 +57,19 @@ function getUserInfo() {
         daysError.textContent = "Sorry, you can only rent a car for 1 to 90 days.";
         return;
     }
-    
-   
 
+    // Calculate the total cost
+    let carIndex = cars.indexOf(carChoice);
+    if (carIndex !== -1) {
+        let totalCost = prices[carIndex] * rentalDays;
+        alert(`Thank you, ${userName}. You have selected a ${carChoice} for ${rentalDays} days. Total cost: ${totalCost} NZD.`);
+    } else {
+        alert("Error: Car not found in the list.");
+    }
+
+    // Store values in localStorage
+    localStorage.setItem("userName", userName);
+    localStorage.setItem("userAge", userAge);
+    localStorage.setItem("carChoice", carChoice);
+    localStorage.setItem("rentalDays", rentalDays);
 }
