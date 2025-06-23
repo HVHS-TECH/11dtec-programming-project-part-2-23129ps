@@ -1,24 +1,19 @@
 /* style.css */
+
+/* General Page Styles */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
+  font-family: Arial, sans-serif; 
+  background-color: #f8f9fa; 
   text-align: center;
   padding: 20px;
   margin-left: 8cm;
-    margin-right: 8cm;
+  margin-right: 8cm;
 }
 
-
-h1 {
-  color: #333;
-  margin-bottom: 10px;
-  border-radius: 5cm;
-  padding-top: 1cm;
-}
-
+/* Header Styles */
 header {
-    background-color: #1A1A1D;
-    color: #F8F8F8;
+    background-color: #1A1A1D; 
+    color: #F8F8F8; 
     padding: 15px;
     text-align: center;
     font-size: 50px;
@@ -26,12 +21,21 @@ header {
     margin-bottom: 15px;
 }
 
-p {
-  font-size: 18px;
-  color: #555;
+/* Heading Styles */
+h1 {
+  color: #333; 
+  margin-bottom: 10px;
+  border-radius: 5cm;
+  padding-top: 1cm;
 }
 
+/* Paragraph Styles */
+p {
+  font-size: 18px;
+  color: #555; 
+}
 
+/* Form Styles */
 form {
   background: white;
   padding: 20px;
@@ -42,14 +46,14 @@ form {
   width: 9cm;
 }
 
-
+/* Label Styling */
 label {
   font-weight: bold;
   display: block;
   margin-top: 10px;
 }
 
-
+/* Input and Select Fields */
 input, select {
   width: 100%;
   padding: 8px;
@@ -58,9 +62,9 @@ input, select {
   border-radius: 4px;
 }
 
-
+/* Button Styling */
 button {
-  background-color: #007bff;
+  background-color: #007bff; 
   color: white;
   padding: 10px 15px;
   border: none;
@@ -69,47 +73,51 @@ button {
   margin-top: 15px;
 }
 
-
+/* Button Hover Effect */
 button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; 
 }
 
-
+/* Output Section */
 #output {
   margin-top: 20px;
   font-size: 18px;
   font-weight: bold;
 }
 
+/* Error Message Styling */
 span {
-  color: red;
+  color: red; 
   font-weight: bold;
   display: block;
   margin-top: 10px;
-
 }
 
+/* Navigation Bar Styling */
 .navbar {
-    background-color: #1A1A1D; /* Matching header color */
+    background-color: #1A1A1D; 
     padding: 8px;
     text-align: center;
     border-radius: 23px;
     margin-bottom: 0px;
 }
 
+/* Navigation Links */
 .navbar a {
-    color: #F8F8F8; 
+    color: #F8F8F8;
     text-decoration: none;
     font-size: 20px;
     padding: 10px 20px;
     display: inline-block;
 }
 
+/* Navigation Hover Effect */
 .navbar a:hover {
-    background-color: #007bff; 
+    background-color: #007bff;
     border-radius: 5px;
 }
 
+/* About Section Styling */
 .about-container {
     background: #f8f9fa;
     border-radius: 8px;
@@ -118,6 +126,7 @@ span {
     margin: auto;
 }
 
+/* About Text */
 .about-container p {
     font-size: 18px;
     color: #333;
@@ -125,9 +134,43 @@ span {
     text-align: justify;
 }
 
+/* About Heading */
 .about-container h1 {
     color: #1A1A1D;
     font-size: 36px;
 }
 
+/* Grid Layout for Car Listings */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+}
 
+/* Grid Item Styling */
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    height: 350px;
+    border-radius: 25px;
+}
+
+/* Grid Item Image */
+.grid-item img {
+    width: 80%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+/* Button Placement in Grid Items */
+.grid-item button {
+    margin-top: auto;
+}
