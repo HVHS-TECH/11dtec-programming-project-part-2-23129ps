@@ -50,7 +50,7 @@ function getUserInfo() {
 
     // Validation checks
     if (!userName || !isNaN(userName)) {
-        nameError.textContent = "Please enter a valid name.";
+        nameError.textContent = "Please enter a valid name (no numbers).";
         return;
     }
     if (!userAge || userAge < 18 || userAge > 65) {
