@@ -1,6 +1,7 @@
 // Written by Priya Silwal
-// Year 11 javascript project
 // Term two
+// Year 11 Javascript Project
+// Priya's Rentals
 
 // Variables
 let insuranceCost = 0;
@@ -20,7 +21,7 @@ let carIndex = -1;
 const cars = ["Solo EV", "Smart Fortwo", "Mazda RX-8", "Toyota Camry", "Honda CR-V",
     "Chevrolet Suburban", "Mercedes-Benz Sprinter", "Ford Transit", "Toyota HiAce"
 ];
-const insuranceRates = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+const insuranceRates = [10, 20, 30, 40, 50, 60, 70, 80, 90]; // Insurance cost
 const prices = [50, 40, 70, 55, 60, 80, 85, 90, 80]; // Prices in NZD
 const lateFeeRates = [20, 15, 25, 18, 20, 30, 35, 32, 30]; // Late return penalty per day
 const discountOffers = ["SUMMER", "EARLYBIRD", "WEEKLY10"]; // Discount codes
